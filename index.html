@@ -1,238 +1,331 @@
-import React, { useState } from 'react';
-import { 
-  Leaf, 
-  BarChart, 
-  Store, 
-  Users, 
-  Info, 
-  CheckCircle2, 
-  Clock, 
-  CalendarDays,
-  ChevronDown,
-  ChevronUp,
-  Cpu
-} from 'lucide-react';
-
-const QuoteApp = () => {
-  const [expandedPhase, setExpandedPhase] = useState(0);
-
-  const hourlyRate = 62;
-  const aiRailMonthly = 117;
-  const projectMonths = 2; // 60 days
-
-  const phases = [
-    {
-      id: 0,
-      title: "Phase 1: SEO Infrastructure & Google Shopping",
-      icon: <BarChart className="w-6 h-6 text-green-700" />,
-      timeline: "Weeks 1-3",
-      hours: 22,
-      description: "Laying the foundation for organic traffic and highly-targeted search visibility.",
-      details: [
-        "Targeting 25 high-volume, low-difficulty keywords (e.g., 'Organic Liquid fertilizer', 'liquid organic fertilizer for vegetables').",
-        "Publishing 8 SEO-optimized blogs within the first 30 days to cycle through organic rank.",
-        "Keyword optimization across existing product pages.",
-        "Setup and optimization of Google Shopping listings to capture search intent."
-      ],
-      tooltip: "Intensive 22-hour sprint at the start of the engagement to get the SEO flywheel spinning immediately."
-    },
-    {
-      id: 1,
-      title: "Phase 2: Local Dominance & Social Commerce",
-      icon: <Store className="w-6 h-6 text-green-700" />,
-      timeline: "Ongoing (Weeks 1-8)",
-      hours: 24,
-      description: "Capturing the local market and streamlining social media conversions.",
-      details: [
-        "Setup and verification of Google My Business listing.",
-        "Repurposing existing content for local Facebook groups (e.g., 'Auburn IN happenings' & local gardening groups).",
-        "Listing products on Facebook Shopping for quick, frictionless checkout.",
-        "Strategic resale placements on Facebook Marketplace."
-      ],
-      tooltip: "Budget-optimized to ~3 hours/week over the 60 days to fit the $4K budget while maintaining a consistent local presence."
-    },
-    {
-      id: 2,
-      title: "Phase 3: Strategic Business Development",
-      icon: <Users className="w-6 h-6 text-green-700" />,
-      timeline: "Ongoing (Scaling up Weeks 6-8)",
-      hours: 14,
-      description: "Direct outreach to regional landscapers and local retail partnerships.",
-      details: [
-        "Direct pitch to 2 local landscapers and 1 Chicago-based landscaper for bulk/professional usage.",
-        "Retail outreach to Menards connection and a targeted Valpo gardening store.",
-        "Local retail placement push, including 'Big Lou's Bargains' in Auburn.",
-        "Scales from 2.5 hours initially to 5 hours/week near the end of the 60-day term."
-      ],
-      tooltip: "Leveraging existing personal networks to secure B2B clients and local shelf space."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-[#F9F8F6] text-stone-800 font-sans p-4 md:p-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-stone-200">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back to Earth Works - Growth Proposal</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-[#F9F8F6] text-stone-800 font-sans p-4 md:p-8">
+    
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-stone-200">
         
-        {/* Header */}
-        <div className="bg-gradient-to-r from-green-900 to-green-800 p-8 text-white relative overflow-hidden">
-          <div className="absolute top-0 right-0 opacity-10 transform translate-x-8 -translate-y-8">
-            <Leaf className="w-64 h-64" />
-          </div>
-          <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center">
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold mb-2 flex items-center gap-3">
-                <Leaf className="w-8 h-8 text-green-400" />
-                Back to Earth Works
-              </h1>
-              <p className="text-green-100 text-lg">60-Day Growth & Optimization Proposal</p>
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-green-900 to-green-800 p-8 text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 opacity-10 transform translate-x-8 -translate-y-8">
+                <i data-lucide="leaf" class="w-64 h-64"></i>
             </div>
-            <div className="mt-6 md:mt-0 bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20 text-right">
-              <p className="text-sm text-green-200 uppercase tracking-wide">Total Investment</p>
-              <p className="text-3xl font-bold">$3,954.00</p>
+            <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2 flex items-center gap-3">
+                        <i data-lucide="leaf" class="w-8 h-8 text-green-400"></i>
+                        Back to Earth Works
+                    </h1>
+                    <p class="text-green-100 text-lg">60-Day Growth & Optimization Proposal</p>
+                </div>
+                <div class="mt-6 md:mt-0 bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20 text-right">
+                    <p class="text-sm text-green-200 uppercase tracking-wide">Total Investment</p>
+                    <p class="text-3xl font-bold">$3,954.00</p>
+                </div>
             </div>
-          </div>
         </div>
 
-        {/* Executive Summary */}
-        <div className="p-8 border-b border-stone-100">
-          <h2 className="text-2xl font-semibold text-stone-800 mb-4">Project Overview</h2>
-          <p className="text-stone-600 leading-relaxed">
-            This highly targeted 60-day sprint is designed to maximize organic reach, establish local dominance in the Auburn/regional area, and open direct B2B/Retail sales channels. By leveraging high-volume keyword targeting and existing local networks, we will build a sustainable sales engine for your organic liquid fertilizers.
-          </p>
-          <div className="flex flex-wrap gap-4 mt-6">
-            <div className="flex items-center gap-2 bg-stone-100 px-4 py-2 rounded-full text-sm font-medium text-stone-700">
-              <CalendarDays className="w-4 h-4 text-green-600" />
-              60-Day Duration
+        <!-- Executive Summary -->
+        <div class="p-8 border-b border-stone-100">
+            <h2 class="text-2xl font-semibold text-stone-800 mb-4">Project Overview</h2>
+            <p class="text-stone-600 leading-relaxed">
+                This highly targeted 60-day sprint is designed to maximize organic reach, establish local dominance in the Auburn/regional area, and open direct B2B/Retail sales channels. By leveraging high-volume keyword targeting and existing local networks, we will build a sustainable sales engine for your organic liquid fertilizers.
+            </p>
+            <div class="flex flex-wrap gap-4 mt-6">
+                <div class="flex items-center gap-2 bg-stone-100 px-4 py-2 rounded-full text-sm font-medium text-stone-700">
+                    <i data-lucide="calendar-days" class="w-4 h-4 text-green-600"></i>
+                    60-Day Duration
+                </div>
+                <div class="flex items-center gap-2 bg-stone-100 px-4 py-2 rounded-full text-sm font-medium text-stone-700">
+                    <i data-lucide="clock" class="w-4 h-4 text-green-600"></i>
+                    60 Total Labor Hours
+                </div>
             </div>
-            <div className="flex items-center gap-2 bg-stone-100 px-4 py-2 rounded-full text-sm font-medium text-stone-700">
-              <Clock className="w-4 h-4 text-green-600" />
-              60 Total Labor Hours
-            </div>
-          </div>
         </div>
 
-        {/* Interactive Phases Timeline */}
-        <div className="p-8 bg-stone-50">
-          <h2 className="text-2xl font-semibold text-stone-800 mb-6">Strategic Phases</h2>
-          <div className="space-y-4">
-            {phases.map((phase) => (
-              <div 
-                key={phase.id} 
-                className={`bg-white border transition-all duration-300 rounded-xl overflow-hidden shadow-sm hover:shadow-md ${expandedPhase === phase.id ? 'border-green-500 ring-1 ring-green-500' : 'border-stone-200'}`}
-              >
-                <div 
-                  className="p-5 flex items-center justify-between cursor-pointer select-none group"
-                  onClick={() => setExpandedPhase(expandedPhase === phase.id ? null : phase.id)}
-                >
-                  <div className="flex items-center gap-4">
-                    <div className={`p-3 rounded-lg ${expandedPhase === phase.id ? 'bg-green-100' : 'bg-stone-100 group-hover:bg-green-50'}`}>
-                      {phase.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-stone-800 flex items-center gap-2">
-                        {phase.title}
-                        {/* Custom Tooltip */}
-                        <div className="relative flex items-center group/tooltip">
-                          <Info className="w-4 h-4 text-stone-400 hover:text-green-600 transition-colors" />
-                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-2 bg-stone-800 text-white text-xs rounded shadow-lg opacity-0 group-hover/tooltip:opacity-100 pointer-events-none transition-opacity z-20 text-center">
-                            {phase.tooltip}
-                            <svg className="absolute text-stone-800 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255"><polygon className="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
-                          </div>
+        <!-- Interactive Phases Timeline -->
+        <div class="p-8 bg-stone-50">
+            <h2 class="text-2xl font-semibold text-stone-800 mb-6">Strategic Phases</h2>
+            <div class="space-y-4">
+                
+                <!-- Phase 1 -->
+                <div id="phase-container-0" class="phase-container bg-white border border-stone-200 transition-all duration-300 rounded-xl overflow-hidden shadow-sm hover:shadow-md border-green-500 ring-1 ring-green-500">
+                    <div class="p-5 flex items-center justify-between cursor-pointer select-none group" onclick="togglePhase(0)">
+                        <div class="flex items-center gap-4">
+                            <div id="phase-icon-bg-0" class="phase-icon-bg p-3 rounded-lg bg-green-100 group-hover:bg-green-50 transition-colors">
+                                <i data-lucide="bar-chart" class="w-6 h-6 text-green-700"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-stone-800 flex items-center gap-2">
+                                    Phase 1: SEO Infrastructure & Google Shopping
+                                    <!-- Tooltip -->
+                                    <div class="relative flex items-center group/tooltip">
+                                        <i data-lucide="info" class="w-4 h-4 text-stone-400 hover:text-green-600 transition-colors"></i>
+                                        <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-2 bg-stone-800 text-white text-xs rounded shadow-lg opacity-0 group-hover/tooltip:opacity-100 pointer-events-none transition-opacity z-20 text-center font-normal">
+                                            Intensive 22-hour sprint at the start of the engagement to get the SEO flywheel spinning immediately.
+                                            <svg class="absolute text-stone-800 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                                        </div>
+                                    </div>
+                                </h3>
+                                <p class="text-sm text-stone-500">Weeks 1-3 • 22 Hours</p>
+                            </div>
                         </div>
-                      </h3>
-                      <p className="text-sm text-stone-500">{phase.timeline} • {phase.hours} Hours</p>
+                        <div class="text-stone-400">
+                            <i data-lucide="chevron-up" id="phase-icon-up-0" class="chevron-up w-5 h-5"></i>
+                            <i data-lucide="chevron-down" id="phase-icon-down-0" class="chevron-down w-5 h-5 hidden"></i>
+                        </div>
                     </div>
-                  </div>
-                  <div className="text-stone-400">
-                    {expandedPhase === phase.id ? <ChevronUp /> : <ChevronDown />}
-                  </div>
+                    <!-- Content 1 -->
+                    <div id="phase-content-0" class="phase-content px-5 pb-5 pt-2 border-t border-stone-100 bg-stone-50/50 block">
+                        <p class="text-stone-700 mb-4 italic">Laying the foundation for organic traffic and highly-targeted search visibility.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-600 text-sm leading-relaxed">Targeting 25 high-volume, low-difficulty keywords (e.g., 'Organic Liquid fertilizer', 'liquid organic fertilizer for vegetables').</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-600 text-sm leading-relaxed">Publishing 8 SEO-optimized blogs within the first 30 days to cycle through organic rank.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-600 text-sm leading-relaxed">Keyword optimization across existing product pages.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-600 text-sm leading-relaxed">Setup and optimization of Google Shopping listings to capture search intent.</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                {/* Expanded Content */}
-                {expandedPhase === phase.id && (
-                  <div className="px-5 pb-5 pt-2 border-t border-stone-100 bg-stone-50/50">
-                    <p className="text-stone-700 mb-4 italic">{phase.description}</p>
-                    <ul className="space-y-3">
-                      {phase.details.map((detail, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
-                          <span className="text-stone-600 text-sm leading-relaxed">{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Cost Breakdown */}
-        <div className="p-8">
-          <h2 className="text-2xl font-semibold text-stone-800 mb-6">Investment Breakdown</h2>
-          <div className="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-sm">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-stone-100 text-stone-600 text-sm uppercase tracking-wider">
-                  <th className="p-4 font-medium">Description</th>
-                  <th className="p-4 font-medium text-right">Rate / Cost</th>
-                  <th className="p-4 font-medium text-right">Qty</th>
-                  <th className="p-4 font-medium text-right">Total</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-stone-100 text-stone-700">
-                <tr className="hover:bg-stone-50 transition-colors">
-                  <td className="p-4">
-                    <div className="font-medium text-stone-800">Professional Services (Labor)</div>
-                    <div className="text-sm text-stone-500">SEO, Local Outreach, & Biz Dev</div>
-                  </td>
-                  <td className="p-4 text-right">${hourlyRate.toFixed(2)} / hr</td>
-                  <td className="p-4 text-right">60 hrs</td>
-                  <td className="p-4 text-right font-medium">${(hourlyRate * 60).toFixed(2)}</td>
-                </tr>
-                <tr className="hover:bg-stone-50 transition-colors group">
-                  <td className="p-4">
-                    <div className="font-medium text-stone-800 flex items-center gap-2">
-                      <Cpu className="w-4 h-4 text-blue-500" />
-                      AI Rail Optimization Tool
-                      <div className="relative flex items-center group/tooltip">
-                        <Info className="w-4 h-4 text-stone-400 hover:text-blue-500 transition-colors cursor-help" />
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2 bg-stone-800 text-white text-xs rounded shadow-lg opacity-0 group-hover/tooltip:opacity-100 pointer-events-none transition-opacity z-20 text-center">
-                          Provided exactly at compute cost. No markup applied.
-                          <svg className="absolute text-stone-800 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255"><polygon className="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                <!-- Phase 2 -->
+                <div id="phase-container-1" class="phase-container bg-white border border-stone-200 transition-all duration-300 rounded-xl overflow-hidden shadow-sm hover:shadow-md">
+                    <div class="p-5 flex items-center justify-between cursor-pointer select-none group" onclick="togglePhase(1)">
+                        <div class="flex items-center gap-4">
+                            <div id="phase-icon-bg-1" class="phase-icon-bg p-3 rounded-lg bg-stone-100 group-hover:bg-green-50 transition-colors">
+                                <i data-lucide="store" class="w-6 h-6 text-green-700"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-stone-800 flex items-center gap-2">
+                                    Phase 2: Local Dominance & Social Commerce
+                                    <!-- Tooltip -->
+                                    <div class="relative flex items-center group/tooltip">
+                                        <i data-lucide="info" class="w-4 h-4 text-stone-400 hover:text-green-600 transition-colors"></i>
+                                        <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-2 bg-stone-800 text-white text-xs rounded shadow-lg opacity-0 group-hover/tooltip:opacity-100 pointer-events-none transition-opacity z-20 text-center font-normal">
+                                            Budget-optimized to ~3 hours/week over the 60 days to fit the $4K budget while maintaining a consistent local presence.
+                                            <svg class="absolute text-stone-800 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                                        </div>
+                                    </div>
+                                </h3>
+                                <p class="text-sm text-stone-500">Ongoing (Weeks 1-8) • 24 Hours</p>
+                            </div>
                         </div>
-                      </div>
+                        <div class="text-stone-400">
+                            <i data-lucide="chevron-up" id="phase-icon-up-1" class="chevron-up w-5 h-5 hidden"></i>
+                            <i data-lucide="chevron-down" id="phase-icon-down-1" class="chevron-down w-5 h-5"></i>
+                        </div>
                     </div>
-                    <div className="text-sm text-stone-500">Provided at exact compute cost</div>
-                  </td>
-                  <td className="p-4 text-right">${aiRailMonthly.toFixed(2)} / mo</td>
-                  <td className="p-4 text-right">2 mos</td>
-                  <td className="p-4 text-right font-medium">${(aiRailMonthly * 2).toFixed(2)}</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr className="bg-stone-800 text-white">
-                  <td colSpan="3" className="p-4 text-right font-semibold text-lg">Total Investment</td>
-                  <td className="p-4 text-right font-bold text-xl">${((hourlyRate * 60) + (aiRailMonthly * 2)).toFixed(2)}</td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
+                    <!-- Content 2 -->
+                    <div id="phase-content-1" class="phase-content px-5 pb-5 pt-2 border-t border-stone-100 bg-stone-50/50 hidden">
+                        <p class="text-stone-700 mb-4 italic">Capturing the local market and streamlining social media conversions.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-600 text-sm leading-relaxed">Setup and verification of Google My Business listing.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-600 text-sm leading-relaxed">Repurposing existing content for local Facebook groups (e.g., 'Auburn IN happenings' & local gardening groups).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-600 text-sm leading-relaxed">Listing products on Facebook Shopping for quick, frictionless checkout.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-600 text-sm leading-relaxed">Strategic resale placements on Facebook Marketplace.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div id="phase-container-2" class="phase-container bg-white border border-stone-200 transition-all duration-300 rounded-xl overflow-hidden shadow-sm hover:shadow-md">
+                    <div class="p-5 flex items-center justify-between cursor-pointer select-none group" onclick="togglePhase(2)">
+                        <div class="flex items-center gap-4">
+                            <div id="phase-icon-bg-2" class="phase-icon-bg p-3 rounded-lg bg-stone-100 group-hover:bg-green-50 transition-colors">
+                                <i data-lucide="users" class="w-6 h-6 text-green-700"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-stone-800 flex items-center gap-2">
+                                    Phase 3: Strategic Business Development
+                                    <!-- Tooltip -->
+                                    <div class="relative flex items-center group/tooltip">
+                                        <i data-lucide="info" class="w-4 h-4 text-stone-400 hover:text-green-600 transition-colors"></i>
+                                        <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-2 bg-stone-800 text-white text-xs rounded shadow-lg opacity-0 group-hover/tooltip:opacity-100 pointer-events-none transition-opacity z-20 text-center font-normal">
+                                            Leveraging existing personal networks to secure B2B clients and local shelf space.
+                                            <svg class="absolute text-stone-800 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                                        </div>
+                                    </div>
+                                </h3>
+                                <p class="text-sm text-stone-500">Ongoing (Scaling up Weeks 6-8) • 14 Hours</p>
+                            </div>
+                        </div>
+                        <div class="text-stone-400">
+                            <i data-lucide="chevron-up" id="phase-icon-up-2" class="chevron-up w-5 h-5 hidden"></i>
+                            <i data-lucide="chevron-down" id="phase-icon-down-2" class="chevron-down w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <!-- Content 3 -->
+                    <div id="phase-content-2" class="phase-content px-5 pb-5 pt-2 border-t border-stone-100 bg-stone-50/50 hidden">
+                        <p class="text-stone-700 mb-4 italic">Direct outreach to regional landscapers and local retail partnerships.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-600 text-sm leading-relaxed">Direct pitch to 2 local landscapers and 1 Chicago-based landscaper for bulk/professional usage.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-600 text-sm leading-relaxed">Retail outreach to Menards connection and a targeted Valpo gardening store.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-600 text-sm leading-relaxed">Local retail placement push, including 'Big Lou's Bargains' in Auburn.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i>
+                                <span class="text-stone-600 text-sm leading-relaxed">Scales from 2.5 hours initially to 5 hours/week near the end of the 60-day term.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        {/* Footer / CTA */}
-        <div className="p-8 bg-stone-100 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-          <div>
-            <p className="text-stone-600 text-sm">Quote valid for 14 days.</p>
-            <p className="text-stone-500 text-xs mt-1">Full detailed terms of service will be provided upon acceptance.</p>
-          </div>
-          <button className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-xl font-medium shadow-lg shadow-green-900/20 transform transition hover:-translate-y-0.5 active:translate-y-0">
-            Approve & Begin Project
-          </button>
+        <!-- Cost Breakdown -->
+        <div class="p-8">
+            <h2 class="text-2xl font-semibold text-stone-800 mb-6">Investment Breakdown</h2>
+            <div class="bg-white border border-stone-200 rounded-xl overflow-hidden shadow-sm">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-stone-100 text-stone-600 text-sm uppercase tracking-wider">
+                            <th class="p-4 font-medium">Description</th>
+                            <th class="p-4 font-medium text-right">Rate / Cost</th>
+                            <th class="p-4 font-medium text-right">Qty</th>
+                            <th class="p-4 font-medium text-right">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-stone-100 text-stone-700">
+                        <tr class="hover:bg-stone-50 transition-colors">
+                            <td class="p-4">
+                                <div class="font-medium text-stone-800">Professional Services (Labor)</div>
+                                <div class="text-sm text-stone-500">SEO, Local Outreach, & Biz Dev</div>
+                            </td>
+                            <td class="p-4 text-right">$62.00 / hr</td>
+                            <td class="p-4 text-right">60 hrs</td>
+                            <td class="p-4 text-right font-medium">$3,720.00</td>
+                        </tr>
+                        <tr class="hover:bg-stone-50 transition-colors group">
+                            <td class="p-4">
+                                <div class="font-medium text-stone-800 flex items-center gap-2">
+                                    <i data-lucide="cpu" class="w-4 h-4 text-blue-500"></i>
+                                    AI Rail Optimization Tool
+                                    <div class="relative flex items-center group/tooltip">
+                                        <i data-lucide="info" class="w-4 h-4 text-stone-400 hover:text-blue-500 transition-colors cursor-help"></i>
+                                        <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2 bg-stone-800 text-white text-xs rounded shadow-lg opacity-0 group-hover/tooltip:opacity-100 pointer-events-none transition-opacity z-20 text-center font-normal">
+                                            Provided exactly at compute cost. No markup applied.
+                                            <svg class="absolute text-stone-800 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-sm text-stone-500">Provided at exact compute cost</div>
+                            </td>
+                            <td class="p-4 text-right">$117.00 / mo</td>
+                            <td class="p-4 text-right">2 mos</td>
+                            <td class="p-4 text-right font-medium">$234.00</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="bg-stone-800 text-white">
+                            <td colspan="3" class="p-4 text-right font-semibold text-lg">Total Investment</td>
+                            <td class="p-4 text-right font-bold text-xl">$3,954.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
 
-      </div>
+        <!-- Footer / CTA -->
+        <div class="p-8 bg-stone-100 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <div>
+                <p class="text-stone-600 text-sm">Quote valid for 14 days.</p>
+                <p class="text-stone-500 text-xs mt-1">Full detailed terms of service will be provided upon acceptance.</p>
+            </div>
+            <button class="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-xl font-medium shadow-lg shadow-green-900/20 transform transition hover:-translate-y-0.5 active:translate-y-0">
+                Approve & Begin Project
+            </button>
+        </div>
+
     </div>
-  );
-};
 
-export default QuoteApp;
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // State for Accordions (Phase 1 open by default)
+        let activePhase = 0;
+
+        function togglePhase(id) {
+            if (activePhase === id) {
+                // If clicking the already open one, just close it
+                closePhase(id);
+                activePhase = null;
+            } else {
+                // Close currently open phase (if any)
+                if (activePhase !== null) {
+                    closePhase(activePhase);
+                }
+                // Open new phase
+                openPhase(id);
+                activePhase = id;
+            }
+        }
+
+        function closePhase(id) {
+            document.getElementById(`phase-content-${id}`).classList.add('hidden');
+            document.getElementById(`phase-content-${id}`).classList.remove('block');
+            
+            document.getElementById(`phase-container-${id}`).classList.remove('border-green-500', 'ring-1', 'ring-green-500');
+            
+            document.getElementById(`phase-icon-bg-${id}`).classList.remove('bg-green-100');
+            document.getElementById(`phase-icon-bg-${id}`).classList.add('bg-stone-100');
+            
+            document.getElementById(`phase-icon-up-${id}`).classList.add('hidden');
+            document.getElementById(`phase-icon-down-${id}`).classList.remove('hidden');
+        }
+
+        function openPhase(id) {
+            document.getElementById(`phase-content-${id}`).classList.remove('hidden');
+            document.getElementById(`phase-content-${id}`).classList.add('block');
+            
+            document.getElementById(`phase-container-${id}`).classList.add('border-green-500', 'ring-1', 'ring-green-500');
+            
+            document.getElementById(`phase-icon-bg-${id}`).classList.remove('bg-stone-100');
+            document.getElementById(`phase-icon-bg-${id}`).classList.add('bg-green-100');
+            
+            document.getElementById(`phase-icon-up-${id}`).classList.remove('hidden');
+            document.getElementById(`phase-icon-down-${id}`).classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
